@@ -42,6 +42,7 @@
     <Compile Include="libCRToast.linkwith.cs">
       <DependentUpon>libCRToast.a</DependentUpon>
     </Compile>
+    <Compile Include="Extension.cs" />
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" />

@@ -18,17 +18,17 @@ namespace CRToast
         // +(void)showNotificationWithOptions:(NSDictionary *)options apperanceBlock:(void (^)(void))appearance completionBlock:(void (^)(void))completion;
         [Static]
         [Export("showNotificationWithOptions:apperanceBlock:completionBlock:")]
-        void ShowNotificationWithOptions(NSDictionary options, Action appearance, Action completion);
+        void ShowNotificationWithOptions(NSDictionary options, [NullAllowed]Action appearance, [NullAllowed]Action completion);
 
         // +(void)showNotificationWithOptions:(NSDictionary *)options completionBlock:(void (^)(void))completion;
         [Static]
         [Export("showNotificationWithOptions:completionBlock:")]
-        void ShowNotificationWithOptions(NSDictionary options, Action completion);
+        void ShowNotificationWithOptions(NSDictionary options, [NullAllowed] Action completion);
 
         // +(void)showNotificationWithMessage:(NSString *)message completionBlock:(void (^)(void))completion;
         [Static]
         [Export("showNotificationWithMessage:completionBlock:")]
-        void ShowNotificationWithMessage(string message, Action completion);
+        void ShowNotificationWithMessage(string message, [NullAllowed]Action completion);
 
         // +(void)dismissNotification:(BOOL)animated;
         [Static]
