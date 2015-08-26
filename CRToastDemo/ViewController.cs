@@ -3,7 +3,6 @@
 using UIKit;
 using CRToast;
 using System.Diagnostics;
-using PureLayout;
 using System.Collections.Generic;
 using Foundation;
 using CoreGraphics;
@@ -26,32 +25,41 @@ namespace CRToastDemo
             var btn = new UIButton();
             View.Add(btn);
 
-            btn.AutoCenterInSuperview();
+            
             btn.SetTitle("Click!", UIControlState.Normal);
-            btn.BackgroundColor = UIColor.Red;
-            btn.AutoSetDimensionsToSize(new CoreGraphics.CGSize(100, 50)); 
+            btn.BackgroundColor = UIColor.FromRGB(78, 183, 54);
+            btn.Frame = new CGRect(100, 200, 100, 44);
 
-            btn.TouchUpInside += (s, e) =>
-            {
-                    
-//                var opt = new NSMutableDictionary();
-//                opt.Add(new NSString("kCRToastNotificationTypeKey"), NSObject.FromObject(CRToastType.NavigationBar));
-//                opt.Add(new NSString("kCRToastTextKey"), new NSString("Hello Word"));
-//                opt.Add(new NSString("kCRToastNotificationPresentationTypeKey"), NSObject.FromObject(CRToastPresentationType.Push));
-//                opt.Add(new NSString("kCRToastAnimationInDirectionKey"), NSObject.FromObject(CRToastAnimationDirection.Right));
-//                opt.Add(new NSString("kCRToastAnimationOutDirectionKey"), NSObject.FromObject(CRToastAnimationDirection.Left));
-//                opt.Add(new NSString("kCRToastShowActivityIndicatorKey"), NSObject.FromObject(true));
-//                CRToastManager.ShowNotificationWithOptions(opt, () =>
-//                    {
-//                    });
-//                    
+
+            var btn2 = new UIButton();
+            View.Add(btn2);
+
+
+            btn2.SetTitle("Click!", UIControlState.Normal);
+            btn2.BackgroundColor = UIColor.Orange;
+            btn2.Frame = new CGRect(100, 400, 100, 44);
+
+            btn.TouchUpInside += (_, __) =>
+            { 
                 CRToastManager.ShowNotification(title: "Hello World",
                     titleColor : UIColor.White,
                     type: CRToastType.NavigationBar,
                     isUnderStatusBar: true,
                     isShowActivityIndicator: true,
                     titleFont: UIFont.BoldSystemFontOfSize(24),
-                    animationTime: 10,
+                    animationTime: 1,
+                    backgroundColor: UIColor.FromRGB(78, 183, 54));
+            };
+
+            btn2.TouchUpInside += (_, __) =>
+            {
+                CRToastManager.ShowNotification(title: "Hello World 2",
+                    titleColor : UIColor.White,
+                    type: CRToastType.NavigationBar,
+                    animationInDirection: CRToastAnimationDirection.Left,
+                    animationInType: CRToastAnimationType.Spring,
+                    titleFont: UIFont.BoldSystemFontOfSize(24),
+                    animationTime: 1,
                     backgroundColor: UIColor.Orange);
             };
              
